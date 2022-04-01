@@ -1,0 +1,15 @@
+{
+  "name": "raft",
+  "version": "1.0.0",
+  "description": "Its for Raft",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DarkSider",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "enmap": "^5.8.13"
+  }
+}
