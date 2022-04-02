@@ -1,4 +1,5 @@
 const Discord = require("discord.js"); //discord.js v13
+const { Client, Collection } = require("discord.js");
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require("@discordjs/voice");
 const config = require(`./config.json`);
 const ytdl = require("ytdl-core")
@@ -16,6 +17,14 @@ const client = new Discord.Client({
         Discord.Intents.FLAGS.GUILD_VOICE_STATES
     ],
 });
+
+module.exports = client;
+
+client.commands = new Collection();
+client.slashCommands = new Collection();
+client.config = require("./config.json");
+
+require("./handler")(client);
 
 const Channels = ["959489079341359128"];
 client.settings = new Enmap({
@@ -40,7 +49,11 @@ client.on("ready", async () => {
                 adapterCreator: channel.guild.voiceAdapterCreator
             });
             //use a: direct mp3 link / file / const ytdl = require("ytdl-core"); ytdl("https://youtu.be/dQw4w9WgXcQ")
-            const resource = createAudioResource("https://streams.ilovemusic.de/iloveradio109.mp3", {
+            const resource = createAudioResource(ytdl("https://www.youtube.com/watch?v=QnL5P0tFkwM", {
+                filter: "audioonly",
+                fmt: "mp3",
+                encoderArgs: ['-af', 'bass=g=10']
+            }), {
                 inlineVolume: true
             });
             resource.volume.setVolume(0.2);

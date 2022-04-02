@@ -11,6 +11,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.5.3",
     "@discordjs/voice": "^0.8.0",
+    "discord-ytdl-core": "^5.0.4",
     "discord.js": "^13.6.0",
     "enmap": "^5.8.13",
     "libsodium-wrappers": "^0.7.10",
