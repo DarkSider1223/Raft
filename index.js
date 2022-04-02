@@ -18,7 +18,11 @@ const client = new Discord.Client({
     ],
 });
 
-module.exports = client;
+const clients = new Client({
+    intents: 32767,
+});
+
+module.exports = clients;
 
 client.commands = new Collection();
 client.slashCommands = new Collection();
