@@ -40,10 +40,7 @@ client.on("ready", async () => {
                 adapterCreator: channel.guild.voiceAdapterCreator
             });
             //use a: direct mp3 link / file / const ytdl = require("ytdl-core"); ytdl("https://youtu.be/dQw4w9WgXcQ")
-            const resource = createAudioResource(ytdl("https://youtu.be/dQw4w9WgXcQ"),{
-                highWaterMark:1024* 1024* 64,
-                quality:"highestaudio"
-            }, {
+            const resource = createAudioResource("https://streams.ilovemusic.de/iloveradio109.mp3", {
                 inlineVolume: true
             });
             resource.volume.setVolume(0.2);
