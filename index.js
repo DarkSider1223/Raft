@@ -16,7 +16,7 @@ client.settings = new Enmap({
     name: "NumberCounter",
 });
 
-client.login(config.token)
+client.login(process.env.token)
 
 client.on("ready", () => {
     console.log(`Logged in ${client.user.tag}`)
