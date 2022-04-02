@@ -5,24 +5,24 @@ const config = require(`./config.json`);
 const ytdl = require("ytdl-core")
 
 const Enmap = require("enmap");
-const client = new Discord.Client({
-    shards: "auto",
-    failIfNotExists: false, //add this for security!
-    allowedMentions: { parse: [ ], repliedUser: false },
-    intents: [ 
-        Discord.Intents.FLAGS.GUILDS,
-        Discord.Intents.FLAGS.GUILD_MEMBERS,
-        Discord.Intents.FLAGS.GUILD_MESSAGES,
-        Discord.Intents.FLAGS.GUILDS,
-        Discord.Intents.FLAGS.GUILD_VOICE_STATES
-    ],
-});
+// const client = new Discord.Client({
+//     shards: "auto",
+//     failIfNotExists: false, //add this for security!
+//     allowedMentions: { parse: [ ], repliedUser: false },
+//     intents: [ 
+//         Discord.Intents.FLAGS.GUILDS,
+//         Discord.Intents.FLAGS.GUILD_MEMBERS,
+//         Discord.Intents.FLAGS.GUILD_MESSAGES,
+//         Discord.Intents.FLAGS.GUILDS,
+//         Discord.Intents.FLAGS.GUILD_VOICE_STATES
+//     ],
+// });
 
-const clients = new Client({
+const client = new Client({
     intents: 32767,
 });
 
-module.exports = clients;
+module.exports = client;
 
 client.commands = new Collection();
 client.slashCommands = new Collection();
