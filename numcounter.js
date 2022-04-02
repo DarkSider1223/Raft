@@ -6,7 +6,7 @@ module.exports = client => {
     client.on("messageCreate", async (message) => {
         //return if not inside of a guild or the guild is not available or got sent by a BOT
         if(!message.guild || message.guild.available === false || message.author.bot) return;
-        let { prefix } = config; // i have a data inside of config.json which is the prefix with object destructering u can grab it!
+        let { prefix } = process.env.prefix; // i have a data inside of config.json which is the prefix with object destructering u can grab it!
         //Commands
         if(message.content.startsWith(prefix)){
             let args = message.content.slice(prefix.length).trim().split(" ");
