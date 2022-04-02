@@ -38,54 +38,8 @@ client.settings = new Enmap({
 client.login(process.env.token)
 
 client.on("ready", async () => {
-    for(const channelId of Channels){
-        joinChannel(channelId);
-        //wait 500ms        
-        await new Promise(res => setTimeout(() => res(2), 500))
-    }
-
-    function joinChannel(channelId) {
-        client.channels.fetch(channelId).then(channel => {
-            //JOIN THE VC AND PLAY AUDIO
-            const VoiceConnection = joinVoiceChannel({
-                channelId: channel.id,
-                guildId: channel.guild.id,
-                adapterCreator: channel.guild.voiceAdapterCreator
-            });
-            //use a: direct mp3 link / file / const ytdl = require("ytdl-core"); ytdl("https://youtu.be/dQw4w9WgXcQ")
-            const resource = createAudioResource(ytdl("https://www.youtube.com/watch?v=QnL5P0tFkwM", {
-                filter: "audioonly",
-                fmt: "mp3",
-                encoderArgs: ['-af', 'bass=g=10']
-            }), {
-                inlineVolume: true
-            });
-            resource.volume.setVolume(0.2);
-            const player = createAudioPlayer()
-            VoiceConnection.subscribe(player);
-            player.play(resource);
-            player.on("idle", () => {
-                try{
-                    player.stop()
-                } catch (e) { }
-                try{
-                    VoiceConnection.destroy()
-                } catch (e) { }
-                joinChannel(channel.id)
-            })
-        }).catch(console.error)
-    }
     console.log(`Logged in ${client.user.tag}`)
     //import our number counter!
     require("./numcounter")(client); // we pass in the client!
 })
 
-client.on("voiceStateUpdate", async (oldState, newState) => {
-    if(newState.channelId && newState.channel.type === "GUILD_STAGE_VOICE" && newState.guild.me.voice.suppress) {
-        try{
-            await newState.guild.me.voice.setSuppressed(false)
-        }catch (e) {
-
-        }
-    }
-})

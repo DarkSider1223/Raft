@@ -9,13 +9,18 @@
   "author": "DarkSider",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.5.3",
+    "@discordjs/opus": "^0.6.0",
+    "axios": "^0.22.0",
+    "discord-player":"^5.1.0",
     "@discordjs/voice": "^0.8.0",
     "discord-ytdl-core": "^5.0.4",
     "discord.js": "^13.6.0",
+    "ffmpeg-static":"^4.4.0",
     "enmap": "^5.8.13",
+    "glob": "^7.2.0",
     "libsodium-wrappers": "^0.7.10",
     "mongoose": "^6.2.9",
+    "util": "^0.12.4",
     "ytdl-core": "^4.11.0"
   }
 }
