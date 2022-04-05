@@ -1,5 +1,5 @@
 {
 	"token": "",
     "prefix": "n!",
-    "mongooseConnectionString": "process.env.mongooseConnectionString"
+    "mongooseConnectionString": ""
 }
