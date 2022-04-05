@@ -9,6 +9,7 @@
   "author": "DarkSider",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/builders": "^0.12.0",
     "@discordjs/opus": "^0.6.0",
     "@discordjs/voice": "^0.8.0",
     "axios": "^0.22.0",

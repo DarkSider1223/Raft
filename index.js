@@ -39,7 +39,7 @@ client.login(process.env.token)
 
 client.on("ready", async () => {
     console.log(`Logged in ${client.user.tag}`)
-    //import our number counter!
-    require("./numcounter")(client); // we pass in the client!
+
+    require("./numcounter")(client); 
 })
 
