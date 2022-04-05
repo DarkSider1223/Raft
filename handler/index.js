@@ -87,7 +87,7 @@ module.exports = async (client) => {
     });
 
     // mongoose
-    const { mongooseConnectionString } = require(proces.env.mongooseConnectionString)
+    const { mongooseConnectionString } = require(process.env.mongooseConnectionString)
     if (!mongooseConnectionString) return;
 
     mongoose.connect(mongooseConnectionString).then(() => console.log('Connected to mongodb'));
